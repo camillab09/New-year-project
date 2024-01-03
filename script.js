@@ -2,14 +2,19 @@ const api = {
   key: "c3c4cbda6dcb01a608863ededc89d630",
   base: "https://api.openweathermap.org/data/2.5/",
 };
-const searchbox = document.querySelector(".search-box");
-searchbox.addEventListener("keypress", setQuery);
-function setQuery(evt) {
+const searchbox = document.getElementById("search-box");
+const button = document.getElementById("button");
+
+searchbox.addEventListener("keypress", function (evt) {
   if (evt.key === "Enter") {
     getResults(searchbox.value);
     console.log(searchbox.value);
   }
-}
+});
+button.addEventListener("click", function () {
+  getResults(searchbox.value);
+  console.log(searchbox.value);
+});
 
 function getResults(query) {
   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
@@ -35,7 +40,6 @@ function displayResults(weather) {
     weather.main.temp_max
   )}°C`;
 }
-
 function dateBuilder(d) {
   let months = [
     "January",
