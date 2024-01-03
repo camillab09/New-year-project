@@ -39,7 +39,20 @@ function displayResults(weather) {
   hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(
     weather.main.temp_max
   )}°C`;
+  setBackgroundImage(weather.main.temp);
 }
+function setBackgroundImage(temperature) {
+  let backgroundImageUrl = "";
+  if (temperature < 0) {
+    backgroundImageUrl = "url('./bg2.jpg')";
+  } else if (temperature > 10) {
+    backgroundImageUrl = "url('./bg3.jpg')";
+  } else {
+    backgroundImageUrl = "url('./bg.jpg')";
+  }
+  document.body.style.backgroundImage = backgroundImageUrl;
+}
+
 function dateBuilder(d) {
   let months = [
     "January",
