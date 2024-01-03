@@ -44,11 +44,11 @@ function displayResults(weather) {
 function setBackgroundImage(temperature) {
   let backgroundImageUrl = "";
   if (temperature < 0) {
-    backgroundImageUrl = "url('./bg2.jpg')";
+    backgroundImageUrl = "url('./images/bg2.jpg')";
   } else if (temperature > 10) {
-    backgroundImageUrl = "url('./bg3.jpg')";
+    backgroundImageUrl = "url('./images/bg3.jpg')";
   } else {
-    backgroundImageUrl = "url('./bg.jpg')";
+    backgroundImageUrl = "url('./images/bg.jpg')";
   }
   document.body.style.backgroundImage = backgroundImageUrl;
 }
